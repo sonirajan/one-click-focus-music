@@ -72,13 +72,21 @@ The first time you run the app, macOS will show two permission prompts. Click **
 
 These are standard macOS **Automation permissions** (not Accessibility). They are remembered permanently after you allow them once. You can review them anytime under **System Settings → Privacy & Security → Automation**.
 
-### Step 4 — Add a Custom Icon (Optional)
+### Step 4 — Apply the Custom Icon (Optional)
 
-1. Download the icon from this repo (`icon.png`)
-2. Open it in **Preview** → `⌘A` → `⌘C` to copy
-3. Right-click `Focus Music.app` → **Get Info**
-4. Click the small icon thumbnail in the top-left of the Get Info window (blue border appears)
-5. Press `⌘V` to paste
+Run these commands in Terminal from inside the repo folder:
+
+```bash
+cp icon.icns "/Applications/Focus Music.app/Contents/Resources/AutomatorApplet.icns"
+cp icon.icns "/Applications/Focus Music.app/Contents/Resources/ApplicationStub.icns"
+
+sudo rm -rf /Library/Caches/com.apple.iconservices.store
+killall Dock
+```
+
+If the icon still shows as Automator after this, log out and back in.
+
+> `icon.icns` is already included in the repo — no conversion needed.
 
 ### Step 5 — Add to Dock or Desktop
 

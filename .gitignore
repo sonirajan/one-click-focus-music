@@ -1,0 +1,6 @@
+# Ignores below files/folders anywhere in the repo
+.idea/
+node_modules/
+.vscode/
+.DS_Store
+Thumbs.db
